@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ITOS_LEARN.Models.User>
+
+@{
+    ViewData["Title"] = "Admin Approval";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>
+                    <!-- ปุ่ม Confirm -->
+                    <form method="post" asp-action="ConfirmUser" asp-route-userId="@user.User_ID">
+                        <button type="submit" class="btn btn-success">Confirm</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

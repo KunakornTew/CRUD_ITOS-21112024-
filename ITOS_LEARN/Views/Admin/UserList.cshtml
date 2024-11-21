@@ -1,0 +1,21 @@
+﻿@model IEnumerable<ITOS_LEARN.Models.User>
+
+<h2>User List</h2>
+
+<table>
+    <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Username</td>
+            <td>@user.Email</td>
+            <td>
+                <a href="@Url.Action("ConfirmUser", "Admin", new { id = user.User_ID})">Confirm</a>
+            </td>
+        </tr>
+    }
+</table>
